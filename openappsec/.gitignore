@@ -1,0 +1,11 @@
+.idea
+.git
+__pycache__
+/Output/*
+Data/Legitimate/*
+Data/Malicious/*
+Data/Legitimate.zip
+Data/Malicious.zip
+waf_comparison.db
+venv/
+

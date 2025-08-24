@@ -1,0 +1,153 @@
+{
+  "children": [
+    {
+      "behaviors": [
+        {
+          "name": "allHttpInCacheHierarchy",
+          "options": {
+            "enabled": true
+          }
+        }
+      ],
+      "children": [
+        {
+          "behaviors": [
+            {
+              "name": "allowPost",
+              "options": {
+                "allowWithoutContentLength": false,
+                "enabled": true
+              }
+            }
+          ],
+          "name": "POST",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        },
+        {
+          "behaviors": [
+            {
+              "name": "allowOptions",
+              "options": {
+                "enabled": true
+              }
+            }
+          ],
+          "name": "OPTIONS",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        },
+        {
+          "behaviors": [
+            {
+              "name": "allowPut",
+              "options": {
+                "enabled": true
+              }
+            }
+          ],
+          "name": "PUT",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        },
+        {
+          "behaviors": [
+            {
+              "name": "allowDelete",
+              "options": {
+                "allowBody": false,
+                "enabled": true
+              }
+            }
+          ],
+          "name": "DELETE",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        },
+        {
+          "behaviors": [
+            {
+              "name": "allowPatch",
+              "options": {
+                "enabled": true
+              }
+            }
+          ],
+          "name": "PATCH",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        }
+      ],
+      "name": "Allowed methods",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "cacheTagVisible",
+          "options": {
+            "behavior": "PRAGMA_HEADER"
+          }
+        }
+      ],
+      "name": "Obfuscate debug info",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "modifyOutgoingResponseHeader",
+          "options": {
+            "action": "DELETE",
+            "customHeaderName": "X-Powered-By",
+            "standardDeleteHeaderName": "OTHER"
+          }
+        },
+        {
+          "name": "modifyOutgoingResponseHeader",
+          "options": {
+            "action": "DELETE",
+            "customHeaderName": "Server",
+            "standardDeleteHeaderName": "OTHER"
+          }
+        }
+      ],
+      "criteria": [
+        {
+          "name": "requestHeader",
+          "options": {
+            "headerName": "X-Akamai-Debug",
+            "matchCaseSensitiveValue": true,
+            "matchOperator": "IS_NOT_ONE_OF",
+            "matchWildcardName": false,
+            "matchWildcardValue": false,
+            "values": [
+              "true"
+            ]
+          }
+        }
+      ],
+      "name": "Obfuscate backend info",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "httpStrictTransportSecurity",
+          "options": {
+            "enable": false
+          }
+        }
+      ],
+      "name": "HSTS",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    }
+  ],
+  "name": "Strengthen security",
+  "options": {},
+  "criteriaMustSatisfy": "all"
+}

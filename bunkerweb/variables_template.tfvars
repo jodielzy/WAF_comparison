@@ -1,0 +1,8 @@
+token           = ""
+edgerc_path     = ""
+root_pass       = ""
+ssh_private_key = ""
+ssh_public_key  = ""
+acme_email      = ""
+server_name     = ""
+zone            = ""

@@ -1,0 +1,74 @@
+{
+  "children": [
+    {
+      "behaviors": [
+        {
+          "name": "cpCode",
+          "options": { "value": { "id": "${env.cp_code_id}" } }
+        }
+      ],
+      "name": "Traffic reporting",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "mPulse",
+          "options": {
+            "apiKey": "",
+            "bufferSize": "",
+            "configOverride": "",
+            "enabled": true,
+            "loaderVersion": "V12",
+            "requirePci": false,
+            "titleOptional": ""
+          }
+        }
+      ],
+      "name": "mPulse RUM",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "edgeScape",
+          "options": { "enabled": false }
+        }
+      ],
+      "criteria": [
+        {
+          "name": "requestType",
+          "options": { "matchOperator": "IS", "value": "CLIENT_REQ" }
+        }
+      ],
+      "name": "Geolocation",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "report",
+          "options": {
+            "logAcceptLanguage": false,
+            "logCookies": "OFF",
+            "logCustomLogField": false,
+            "logEdgeIP": false,
+            "logHost": false,
+            "logReferer": false,
+            "logUserAgent": false,
+            "logXForwardedFor": false
+          }
+        }
+      ],
+      "name": "Log delivery",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    }
+  ],
+  "name": "Augment insights",
+  "options": {},
+  "criteriaMustSatisfy": "all"
+}

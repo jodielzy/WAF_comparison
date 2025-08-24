@@ -1,0 +1,141 @@
+{
+  "children": [
+    {
+      "behaviors": [
+        {
+          "name": "dnsAsyncRefresh",
+          "options": {
+            "enabled": true,
+            "timeout": "1h"
+          }
+        }
+      ],
+      "name": "Origin connectivity",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "http2",
+          "options": {
+            "enabled": ""
+          }
+        },
+        {
+          "name": "allowTransferEncoding",
+          "options": {
+            "enabled": true
+          }
+        },
+        {
+          "name": "sureRoute",
+          "options": {
+            "enableCustomKey": false,
+            "enabled": true,
+            "forceSslForward": false,
+            "raceStatTtl": "30m",
+            "testObjectUrl": "/favicon.ico",
+            "toHostStatus": "INCOMING_HH",
+            "type": "PERFORMANCE"
+          }
+        }
+      ],
+      "name": "Protocol Optimizations",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "children": [
+        {
+          "behaviors": [
+            {
+              "name": "prefetch",
+              "options": {
+                "enabled": true
+              }
+            }
+          ],
+          "children": [
+            {
+              "behaviors": [
+                {
+                  "name": "prefetch",
+                  "options": {
+                    "enabled": false
+                  }
+                }
+              ],
+              "criteria": [
+                {
+                  "name": "userAgent",
+                  "options": {
+                    "matchCaseSensitive": false,
+                    "matchOperator": "IS_ONE_OF",
+                    "matchWildcard": true,
+                    "values": [
+                      "*bot*",
+                      "*crawl*",
+                      "*spider*"
+                    ]
+                  }
+                }
+              ],
+              "name": "Bots",
+              "options": {},
+              "criteriaMustSatisfy": "all"
+            }
+          ],
+          "name": "Prefetching objects",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        },
+        {
+          "behaviors": [
+            {
+              "name": "prefetchable",
+              "options": {
+                "enabled": true
+              }
+            }
+          ],
+          "criteria": [
+            {
+              "name": "fileExtension",
+              "options": {
+                "matchCaseSensitive": false,
+                "matchOperator": "IS_ONE_OF",
+                "values": [
+                  "css",
+                  "js",
+                  "jpg",
+                  "jpeg",
+                  "jp2",
+                  "png",
+                  "gif",
+                  "svg",
+                  "svgz",
+                  "webp",
+                  "eot",
+                  "woff",
+                  "woff2",
+                  "otf",
+                  "ttf"
+                ]
+              }
+            }
+          ],
+          "name": "Prefetchable objects",
+          "options": {},
+          "criteriaMustSatisfy": "all"
+        }
+      ],
+      "name": "Prefetching",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    }
+  ],
+  "name": "Accelerate delivery",
+  "options": {},
+  "criteriaMustSatisfy": "all"
+}

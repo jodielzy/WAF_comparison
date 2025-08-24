@@ -1,0 +1,49 @@
+{
+  "ruleFormat": "latest",
+  "rules": {
+    "name": "default",
+    "behaviors": [
+      {
+        "name": "origin",
+        "options": {
+          "cacheKeyHostname": "REQUEST_HOST_HEADER",
+          "compress": true,
+          "enableTrueClientIp": true,
+          "forwardHostHeader": "CUSTOM",
+          "customForwardHostHeader": "${env.forward_host_header}",
+          "hostname":  "${env.origin_hostname}",
+          "httpPort": 80,
+          "httpsPort": 443,
+          "ipVersion": "DUALSTACK",
+          "minTlsVersion": "DYNAMIC",
+          "originCertificate": "",
+          "originSni": true,
+          "originType": "CUSTOMER",
+          "ports": "",
+          "tlsVersionTitle": "",
+          "trueClientIpClientSetting": false,
+          "trueClientIpHeader": "True-Client-IP",
+          "useUniqueCacheKey": false,
+          "verificationMode": "PLATFORM_SETTINGS"
+        }
+      },
+      {
+        "name": "originIpAcl",
+        "options": { "enable": true }
+      },
+      {
+        "name": "tieredDistribution",
+        "options": { "enabled": true }
+      }
+    ],
+    "children": [
+      "#include:Augment_insights.json",
+      "#include:Accelerate_delivery.json",
+      "#include:Offload_origin.json",
+      "#include:Strengthen_security.json",
+      "#include:Increase_availability.json",
+      "#include:Minimize_payload.json"
+    ],
+    "options": { "is_secure": true }
+  }
+}

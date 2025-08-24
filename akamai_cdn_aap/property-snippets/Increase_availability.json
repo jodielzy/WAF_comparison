@@ -1,0 +1,78 @@
+{
+  "children": [
+    {
+      "behaviors": [
+        {
+          "name": "breakConnection",
+          "options": {
+            "enabled": true
+          }
+        }
+      ],
+      "criteria": [
+        {
+          "name": "contentDeliveryNetwork",
+          "options": {
+            "matchOperator": "IS",
+            "network": "STAGING"
+          }
+        },
+        {
+          "name": "requestHeader",
+          "options": {
+            "headerName": "breakconnection",
+            "matchCaseSensitiveValue": true,
+            "matchOperator": "IS_ONE_OF",
+            "matchWildcardName": false,
+            "matchWildcardValue": false,
+            "values": [
+              "Your-Secret-Here"
+            ]
+          }
+        }
+      ],
+      "name": "Simulate failover",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "failAction",
+          "options": {
+            "enabled": false
+          }
+        }
+      ],
+      "criteria": [
+        {
+          "name": "originTimeout",
+          "options": {
+            "matchOperator": "ORIGIN_TIMED_OUT"
+          }
+        }
+      ],
+      "name": "Site failover",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    },
+    {
+      "behaviors": [
+        {
+          "name": "healthDetection",
+          "options": {
+            "maximumReconnects": 2,
+            "retryCount": 3,
+            "retryInterval": "10s"
+          }
+        }
+      ],
+      "name": "Origin health",
+      "options": {},
+      "criteriaMustSatisfy": "all"
+    }
+  ],
+  "name": "Increase availability",
+  "options": {},
+  "criteriaMustSatisfy": "all"
+}
