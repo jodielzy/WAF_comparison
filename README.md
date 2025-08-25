@@ -40,6 +40,15 @@ Before you begin, ensure you have:
 
 3. **Access to Akamai Control Center** and an **existing CP Code** for CDN/AAP setup.
 
+4. **Python and Python virtual environment installed**
+
+5. **Clone this repository**
+With Git installed, run:
+
+```bash
+git clone https://github.com/jodielzy/WAF_comparison.git
+```
+
 ---
 
 ## 1. Setting up Akamai CDN and AAP
@@ -193,3 +202,5 @@ terraform destroy
 ## License
 
 This project is for **educational and research purposes** during my internship at Akamai.  
+
+
