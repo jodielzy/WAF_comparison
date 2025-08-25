@@ -28,6 +28,6 @@ MALICIOUS_PATH  = DATA_PATH / "Malicious"
 
 # WAF configuration (edit to your hosts)
 WAFS_DICT = {
-    "AAP WAF":      "https://www.jodie.yinpok.com",
-    "BunkerWeb WAF": "https://dvwa-bunker.jodie.yinpok.com",
+    "AAP WAF":      "https://",
+    "BunkerWeb WAF": "https://",
 }
