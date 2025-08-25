@@ -196,8 +196,8 @@ class Wafs:
 
         # Concurrency limits
         self.max_inflight       = int(os.getenv("ASYNC_MAX_INFLIGHT", "5000"))
-        self.sem_concurrency    = int(os.getenv("ASYNC_CONCURRENCY", "800"))     # for Legitimate
-        self.mal_sem_concurrency = int(os.getenv("MALICIOUS_CONCURRENCY", "25")) # smaller for Malicious
+        self.sem_concurrency    = int(os.getenv("ASYNC_CONCURRENCY", "1500"))     # for Legitimate
+        self.mal_sem_concurrency = int(os.getenv("MALICIOUS_CONCURRENCY", "1000")) # smaller for Malicious
 
     def get_waf_name_by_url(self, url):
         return self.inverse_waf_dict[url]
@@ -255,7 +255,8 @@ class Wafs:
         # --- scan dataset and pre-count total requests (for % bar) ---
         test_files = list(DATA_PATH.rglob("*.json"))
         SMOKE_N = int(os.getenv("SMOKE_N", "0")) or None
-        total_requests = 0
+        total_requests = 13980
+        '''
         for p in test_files:
             try:
                 if SMOKE_N:
@@ -265,6 +266,7 @@ class Wafs:
             except Exception:
                 cnt = 0
             total_requests += cnt * len(self.wafs)
+        '''
         log.info(f"Submitting & running payloads: 0 / {total_requests}")
 
         # Async clients per WAF
