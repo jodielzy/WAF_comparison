@@ -1,14 +1,15 @@
-token               = ""
-edgerc_path         = ""
-root_pass           = ""
-ssh_public_key      = ""
-ssh_private_key     = ""
-dns_zone            = ""
-hostname            = ""
-origin_hostname     = ""
-email               = ""
+token               = "// Fill in your Linode API Token"
+edgerc_path         = "// Fill in path to .edgrerc"
+root_pass           = "// Root password of Linode"
+ssh_public_key      = "// Path to SSH Public Key"
+ssh_private_key     = "// Path to SSH Private Key"
+dns_zone            = "// Fill in your DNS Zone"
+hostname            = "// Fill in your property hostname"
+origin_hostname     = "// Fill in your Origin Server hostname"
+email               = "// Fill in your email"
 cp_code_id          = 
-contract_id         = ""
-group_id            = ""
+contract_id         = "// Fill in your contract id without any prefix"
+group_id            = "grp_" // Fill in your group id, keep the prefix
+
 
 
