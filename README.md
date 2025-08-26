@@ -67,12 +67,17 @@ This section provisions **Akamai CDN + App & API Protector (AAP)** using Terrafo
    terraform.tfvars
    ```
 
-3. First, run Terraform to generate the certificate enrollment:
+3. First, initialize the Terraform configuration:
+   ```bash
+   terraform init
+   ```
+
+4. Next, run Terraform to generate the certificate enrollment:
    ```bash
    terraform apply -target=akamai_cps_dv_enrollment.edge_enrollment -auto-approve
    ```
 
-4. Then run a full apply to deploy everything:
+5. Then run a full apply to deploy everything:
    ```bash
    terraform apply -auto-approve
    ```
@@ -94,7 +99,12 @@ This section provisions **BunkerWeb WAF** in front of DVWA.
    variables_template.tfvars
    ```
 
-3. Run Terraform:
+3. First, initialize the Terraform configuration:
+   ```bash
+   terraform init
+   ```
+
+4. Run Terraform:
    ```bash
    terraform apply -auto-approve
    ```
@@ -202,5 +212,6 @@ terraform destroy
 ## License
 
 This project is for **educational and research purposes** during my internship at Akamai.  
+
 
 
