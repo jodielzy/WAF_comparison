@@ -255,8 +255,6 @@ class Wafs:
         # --- scan dataset and pre-count total requests (for % bar) ---
         test_files = list(DATA_PATH.rglob("*.json"))
         SMOKE_N = int(os.getenv("SMOKE_N", "0")) or None
-        total_requests = 13980
-        '''
         for p in test_files:
             try:
                 if SMOKE_N:
@@ -266,7 +264,6 @@ class Wafs:
             except Exception:
                 cnt = 0
             total_requests += cnt * len(self.wafs)
-        '''
         log.info(f"Submitting & running payloads: 0 / {total_requests}")
 
         # Async clients per WAF
@@ -491,3 +488,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
