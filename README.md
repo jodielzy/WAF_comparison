@@ -43,6 +43,7 @@ Before you begin, ensure you have:
 4. **Python and Python virtual environment installed**
 
 5. **Clone this repository**
+
 With Git installed, run:
 
 ```bash
@@ -218,6 +219,7 @@ This project is for **educational and research purposes** during my internship a
 ## Contact
 
 For any questions or concerns, please open an issue in this GitHub repository.
+
 
 
 
