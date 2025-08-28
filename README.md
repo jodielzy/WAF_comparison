@@ -33,7 +33,7 @@ The project is split into three subdirectories:
 Before you begin, ensure you have:
 
 1. **Terraform installed**  
-   👉 [Terraform installation guide](https://www.linode.com/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/)
+   👉 [Terraform installation guide](https://www.linode.com/docs/guides/how-to-build-your-infrastructure-using-terraform-and-linode/#install-terraform)
 
 2. **Akamai API credentials and account details**  
    👉 [Akamai Terraform Provider Docs](https://techdocs.akamai.com/terraform/docs/overview)
@@ -219,6 +219,7 @@ This project is for **educational and research purposes** during my internship a
 ## Contact
 
 For any questions or concerns, please open an issue in this GitHub repository.
+
 
 
 
