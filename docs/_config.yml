@@ -1,0 +1,15 @@
+title: "WAF Baseline"
+theme: minima
+
+header_pages:
+  - UserGuide.md
+  - DeveloperGuide.md
+
+# Markdown & plugins
+markdown: kramdown
+plugins:
+  - jemoji
+
+repository: "jodielzy/WAF_comparison"
+github_icon: "images/github-icon.png"   
+
