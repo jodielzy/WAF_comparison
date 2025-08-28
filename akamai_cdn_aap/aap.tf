@@ -1,6 +1,6 @@
 resource "akamai_appsec_configuration" "config" {
   depends_on  = [akamai_property_activation.site_production]
-  name        = "test03"
+  name        = "dvwa-waf-comparison"
   description = "new config"
   contract_id = var.contract_id
   group_id    = var.group_id
@@ -3311,3 +3311,4 @@ resource "akamai_appsec_activations" "appsecactivation" {
 
   depends_on = [akamai_appsec_match_target.website_10289345]
 }
+
